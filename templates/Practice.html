@@ -1,0 +1,78 @@
+{%extends "base.html" %} {%block content%}
+
+<!--header part-->
+<div class="flex justify-between items-start gap-4 relative h-[70px]">
+  <!-- left -->
+
+  <div class="pt-12">
+    <h1 class="flex items-center gap-3 text-3xl font-semibold">
+      <i class="fa-solid fa-book-open text-purple-400 text-3xl"></i>
+      Practice
+    </h1>
+    <p class="text-gray-300 text-sm ms-12">
+      Improve your typing skills with our practice tasks
+    </p>
+  </div>
+
+  <!-- right -->
+  <img
+    src="{{ url_for('static', filename='images/image.png') }}"
+    class="w-96 h-[250px] object-contain absolute right-0 -top-6"
+  />
+</div>
+
+<!--normal divider line-->
+<div class="w-[700px] h-[1px] bg-slate-700 my-9"></div>
+
+<!-- next section -->
+<div class="flex items-start">
+  <div>
+    <h1 class="font-semibold text-xl">
+      All Practice tasks <span class="text-purple-400">(15)</span>
+    </h1>
+  </div>
+</div>
+<!--all tasks cards-->
+<div
+  class="bg-slate-600/10 w-full my-auto p-2 mt-3 rounded-lg overflow-y-auto h-[350px] custom-scroll"
+>
+  <div class="grid grid-cols-6 gap-4">
+    <!--for loop-->
+    {% for task in tasks %}
+
+    <div
+      class="bg-gradient-to-br {{ task.bg }} border border-slate-700 rounded-lg p-3 mt-4 hover:scale-105 transition duration-300"
+    >
+      <div class="flex items-center gap-4">
+        <div
+          class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center"
+        >
+
+        <!--apply condition-->
+          {% if task.icon %}
+          <i
+            class="{{ task.icon }} {{task.iconColor}} {{task.iconBg}} text-2xl "
+          ></i>
+
+          {% else %}
+          <span class="text-sm font-bold {{ task.textColor }} "> {{task.textIcon}}  </span>
+          {% endif%}
+        </div>
+
+        <span class="text-gray-400"> {{ task.number }} </span>
+      </div>
+
+      <h2 class="text-gray-200 text-lg mt-2">{{ task.title }}</h2>
+
+      <span class="{{ task.levelColor }} px-9 rounded-lg text-xs">
+        {{ task.level }}
+      </span>
+
+      <button class="w-full bg-purple-700 mt-2 rounded-lg py-2">Start</button>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Typing Master</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+ 
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body class="bg-slate-950 text-white flex overflow-hidden">
+
+  <!-- SIDEBAR START -->
+  <div class="w-64 bg-slate-900 p-6 flex flex-col justify-between rounded-lg m-4">
+
+    <!-- TOP PART -->
+    <div>
+
+      <!-- Logo -->
+      <h1 class="text-2xl font-semibold flex items-center gap-2">
+        <i class="fa-solid fa-keyboard text-indigo-400"></i>
+        Type<span class="text-purple-600">Master</span>
+      </h1>
+
+      <!-- Menu -->
+      <ul class="mt-7 space-y-2">
+
+        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-800 cursor-pointer">
+          <a href="/" class="flex items-center gap-3 w-full">
+            <i class="fa-solid fa-keyboard"></i>
+            <span>Typing Test</span>
+          </a>
+        </li>
+
+        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-800 cursor-pointer">
+          <a href="/practice" class="flex items-center gap-3 w-full">
+            <i class="fa-solid fa-pen"></i>
+            <span>Practice</span>
+          </a>
+        </li>
+
+        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-800 cursor-pointer">
+          <a href="/stats" class="flex items-center gap-3 w-full">
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Stats</span>
+          </a>
+        </li>
+
+        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-800 cursor-pointer">
+          <a href="/history" class="flex items-center w-full gap-3">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <span>History</span>
+          </a>
+        </li>
+
+
+        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-slate-800 cursor-pointer">
+          <a href="/settings" class="flex items-center gap-3 w-full">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+
+
+
+         <li class="flex items-center gap-3 p-2  rounded-lg hover:bg-slate-800 cursor-pointer">
+          <a href="/games" class="flex items-center gap-3 w-full">
+             <i class="fa-solid fa-trophy "></i>
+             <span>Games</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- BOTTOM PART -->
+
+    <!--  DAILY GOAL -->
+    <div class="bg-slate-800 p-4 rounded-xl mt-4">
+
+      <div class="flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-bullseye"></i>
+          <p class="text-sm text-gray-300">Daily Goal</p>
+        </div>
+        <span class="text-xs text-indigo-400">70%</span>
+      </div>
+
+      <div class="w-full bg-slate-700 h-2 mt-2 rounded-full">
+        <div class="bg-indigo-500 h-2 rounded-full w-[70%]"></div>
+      </div>
+
+      <p class="text-xs text-gray-400 mt-1">7/10 tests completed</p>
+    </div>
+
+    <!-- Motivation -->
+    <div class="p-2 bg-slate-800 rounded-lg mt-3">
+      <p class="text-sm text-gray-300">
+        Success is not final, failure is not fatal.
+        failure is not fatal.failure is not fatal.
+        <br>
+        <span class="text-xs">-Winston Churchill</span>
+      </p>
+    </div>
+
+  </div>
+  <!--  SIDEBAR END -->
+
+
+  <!-- MAIN CONTENT -->
+  <div class="flex-1 p-6">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

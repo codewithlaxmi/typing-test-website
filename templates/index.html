@@ -1,0 +1,226 @@
+{% extends "base.html" %} {% block content %}
+
+<!-- Header -->
+<div class="flex justify-between items-center">
+  <!-- LEFT -->
+  <div>
+    <h1 class="flex items-center gap-2 text-2xl font-semibold">
+      <i class="fa-solid fa-chart-simple text-indigo-400 text-2xl mt-2"></i>
+      Typing Test
+    </h1>
+
+    <p class="text-sm text-gray-400 ml-9 mt-1">
+      Test your typing speed and accuracy
+    </p>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="flex items-center gap-5">
+    <!-- Moon FIRST -->
+    <button
+      class="bg-slate-800 p-2 rounded-lg hover:scale-110 transition duration-300 hover:bg-indigo-600"
+    >
+      <i class="fa-solid fa-moon text-yellow-300"></i>
+    </button>
+
+  <!--dropdown-->
+  <div class="relative w-40">
+
+  <!-- button -->
+  <button
+    id="dropdownBtn"
+    class="w-full bg-slate-800  text-white  py-2 rounded-lg p-2 text-left"
+  >
+    Medium <span>(40s)</span>
+  </button>
+
+  <!-- dropdown menu -->
+  <div
+    id="dropdownMenu"
+    class="hidden absolute w-full mt-2 bg-slate-900 rounded-xl overflow-hidden"
+  >
+
+    <div class="p-2 hover:bg-slate-700 rounded-lg m-3 cursor-pointer option">
+      Easy <span>(5s)</span>
+    </div>
+
+    <div class="p-2 hover:bg-slate-700 rounded-lg m-3 cursor-pointer option">
+      Medium <span>(15s)</span>
+    </div>
+
+    <div class="p-2 rounded-lg hover:bg-slate-700 m-3 cursor-pointer option">
+      Hard <span>(20s)</span>
+    </div>
+
+  </div>
+
+</div>
+
+    <!-- Start -->
+    <button
+      class="bg-purple-600 px-5 py-2 rounded-lg hover:scale-110 transition duration-300 hover:bg-transparent border border-indigo-600"
+      id="startBtn"
+    >
+      Start Test
+    </button>
+  </div>
+</div>
+
+<!--main part end-->
+
+<div class="grid grid-cols-4 gap-6 mt-3 p-2">
+  <div
+    class="p-3 rounded-xl bg-gradient-to-br from-blue-900/40 to-slate-800 border border-slate-500/30 shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:scale-110 transition duration-300"
+  >
+    <div class="flex items-center gap-5">
+      <!-- LEFT: Icon -->
+      <div
+        class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-500/30"
+      >
+        <i class="fa-solid fa-gauge-high text-blue-100 text-3xl"></i>
+      </div>
+
+      <!-- RIGHT: Text -->
+      <div class="flex flex-col">
+        <p class="text-lg font-semibold text-blue-500">WPM</p>
+        <h2 id="wpmText" class="text-2xl font-bold">0</h2>
+        <p class="text-xs text-gray-200">Words per minute</p>
+      </div>
+    </div>
+  </div>
+
+  <!--second div-->
+  <div
+    class="p-3 rounded-xl bg-gradient-to-br from-green-900/40 to-slate-800 border border-slate-500/30 shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:scale-110 transition duration-300"
+  >
+    <div class="flex items-center gap-5">
+      <!--left icon-->
+      <div
+        class="w-12 h-12 flex items-center justify-center rounded-full bg-green-500/30 mt-2"
+      >
+        <i class="fa-solid fa-bullseye text-green-400 text-3xl"></i>
+      </div>
+      <!--right: text-->
+      <div class="flex flex-col">
+        <p class="text-lg font-semibold text-green-600">Accuracy</p>
+        <h2 id="accuracyText" class="font-bold text-2xl">0%</h2>
+        <p class="text-xs text-gray-200">Correct words</p>
+      </div>
+    </div>
+  </div>
+
+  <!--third div-->
+  <div
+    class="p-3 rounded-xl bg-gradient-to-br from-purple-900/40 to-slate-800 border border-slate-500/30 shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:scale-110 transition duration-300"
+  >
+    <div class="flex items-center gap-5">
+      <!--left: icon-->
+      <div
+        class="w-12 h-12 flex items-center justify-center rounded-full mt-2 mb-1 bg-purple-500/20"
+      >
+        <i class="fa-solid fa-clock text-orange-100 text-3xl mt-1"></i>
+      </div>
+      <!--right: text-->
+      <div class="flex flex-col">
+        <p  class="text-lg font-semibold text-purple-600">Time</p>
+        <h2 id="timeText" class="font-bold text-2xl">40s</h2>
+        <p class="text-gray-200 text-xs">Test duration</p>
+      </div>
+    </div>
+  </div>
+
+  <!--forth div-->
+
+  <div
+    class="p-3 rounded-lg bg-gradient-to-br from-orange-900/40 to-slate-800 border border-slate-500/30 shadow-[0_0_15px_rgba(59,130,246,0.3)] hover:scale-110 transition duration-300"
+  >
+    <div class="flex items-center gap-5">
+      <!--left: icon-->
+      <div
+        class="rounded-full w-12 h-12 bg-orange-500/20 items-center justify-center flex"
+      >
+        <i class="fa-solid fa-xmark text-purple-400 text-2xl"></i>
+      </div>
+
+      <!--right: text-->
+      <div class="flex flex-col">
+        <p class="text-lg font-semibold text-orange-600">Errors</p>
+        <h2 id="errorText" class="font-bold text-2xl">0</h2>
+        <p class="text-xs text-gray-400">Mistyped words</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---typing sentences-->
+<div
+  class="w-full mt-4 min-h-[240px] p-2 rounded-lg bg-gradient-to-br from-indigo-900/40 to-slate-500/30 border border-slate-800"
+>
+  <!--internal box-->
+  <div
+    class="bg-gradient-to-br from-purple-900/40 to-slate-500/30 border border-slate-500/90 w-full rounded-lg h-full"
+  >
+    <div id="text" class="text-2xl p-2 leading-relaxed text-justify">
+      <!--inner text-->
+    </div>
+  </div>
+</div>
+
+<!---some important buttons-->
+<div class="grid grid-cols-4 gap-6 mt-4">
+  <!--first button-->
+  <div
+    class="p-3 bg-gradient-to-br from-blue-900/30 to-slate-500/30 border border-slate-500 rounded-lg flex flex-col gap-2 items-center justify-center shadow-[0_0_6px_rgba(59,130,246,0.3)] hover:scale-110 transition duration-300"
+  >
+    <!--button-->
+    <button
+      class="bg-indigo-600 px-4 py-2 rounded-lg hover:bg-transparent border border-indigo-600 transition"
+    >
+      <i class="fa-solid fa-power-off"></i> Restart Test
+    </button>
+    <p class="text-sm text-center">Restart the current test</p>
+  </div>
+
+  <!--second button-->
+  <div
+    class="p-3 flex flex-col gap-2 items-center justify-center bg-gradient-to-br from-green-900/90 to-slate-500/30 border border-slate-500 rounded-lg shadow-[0_0_6px_rgba(59,130,246,0.3)] hover:scale-110 transition duration-300"
+  >
+    <!--button-->
+    <button
+      id="refreshBtn"
+      class="bg-indigo-600 px-4 py-2 rounded-lg hover:bg-transparent border border-indigo-600 transition border-2"
+    >
+      <i class="fa-solid fa-arrows-rotate"></i> Refresh
+    </button>
+    <p class="text-sm text-center">Refresh the page</p>
+  </div>
+
+  <!--thrid button-->
+  <div
+    class="p-3 flex flex-col gap-2 items-center justify-center bg-gradient-to-br from-purple-900/90 to-slate-500/30 border border-slate-500 rounded-lg shadow-[0_0_6px_rgba(59,130,246,0.3)] hover:scale-110 transition duration-300"
+  >
+    <button
+      id="reviewBtn"
+      class="bg-indigo-600 px-4 py-2 rounded-lg hover:bg-transparent border border-indigo-600 transition"
+    >
+      <i class="fa-solid fa-star"></i> Review
+    </button>
+    <p class="text-sm text-center">Please give feedback</p>
+  </div>
+
+  <!--forth button-->
+  <div
+    class="p-3 bg-gradient-to-br gap-2 flex flex-col items-center justify-center from-blue-900/90 to-slate-500/30 border border-slate-500 rounded-lg shadow-[0_0_6px_rgba(59,130,246,0.3)] hover:scale-110 transition duration-300"
+  >
+    <button
+      class="px-4 py-2 bg-indigo-600 rounded-lg hover:bg-transparent border border-indigo-600 transition"
+    >
+      <i class="fa-solid fa-globe"></i> Hindi language
+    </button>
+    <p class="text-sm text-center">Switch Language (Hindi)</p>
+  </div>
+</div>
+
+<!---main div end-->
+
+{% endblock %}

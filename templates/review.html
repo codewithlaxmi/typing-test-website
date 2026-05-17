@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="max-w-xl mx-auto mt-20 bg-slate-900 p-8 rounded-xl">
+  <h1 class="text-3xl font-bold mb-6">Give Your Feedback</h1>
+
+  <form method="POST">
+    <input
+      type="text"
+      placeholder="Your Name"
+      name="name"
+      class="w-full p-3 rounded-lg bg-slate-800 mb-4"
+    />
+
+    <textarea
+      name="feedback"
+      placeholder="Write your feedback..."
+      class="w-full p-3 rounded-lg bg-slate-800 h-40"
+    ></textarea>
+
+    <input type="number" name="rating" placeholder="rating" />
+
+    <button type="submit" class="mt-5 bg-indigo-600 px-5 py-2 rounded-lg">
+      Submit Review
+    </button>
+  </form>
+</div>
+
+{% endblock %}
