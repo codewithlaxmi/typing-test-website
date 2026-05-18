@@ -184,7 +184,7 @@ document.addEventListener("keydown", function (e) {
     return;
   }
 
-  // ADD THIS
+  
 typedChars++;
 
 
