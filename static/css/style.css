@@ -1,21 +1,221 @@
+/* First Scrollbar */
 .custom-scroll::-webkit-scrollbar {
   width: 10px;
-  margin-right:2px;
-  
 }
 
 .custom-scroll::-webkit-scrollbar-track {
   background: #1b1b1b;
-  border-radius:20px;
-  
+  border-radius: 20px;
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
   background: #d0cbe0;
   border-radius: 10px;
-  border: 2px solid #f7f6f6;
-  height: 12px;
-
-   border: 2px solid transparent;  
+  border: 2px solid transparent;
   background-clip: content-box;
+}
+
+
+/* Second Scrollbar */
+.custom-scroll1::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scroll1::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scroll1::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.custom-scroll1::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+  background-clip: content-box;
+}
+
+
+
+/*word script page*/
+
+.background{
+    width:100%;
+    height:90vh;
+
+    background-image:url(../images/wordscriptbackground.png);
+
+    background-size:100%;
+    background-position:center;
+    background-repeat:no-repeat;
+    border-radius:20px;
+    
+    
+} 
+
+
+#game-area{
+
+  position:relative;
+  width: 100%;
+  height:500px;
+  overflow:hidden;
+}
+
+
+.word{
+  position:absolute;
+  top:18%;
+  left:50%;
+
+  
+  transform: translatex(-50%) scale(0.2);
+  color:black;
+  background-color:white ;
+  font-size:28px;
+  font-weight:bold;
+  padding:12px 30px;
+  border-radius:20px;
+  box-shadow:  
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 40px #ff00ff;
+  
+  animation: moveWord 12s linear forwards;
+
+}
+
+@keyframes moveWord {
+
+  0%{
+    top:18%;
+    left:50%;
+
+    transform: translateX(-50%) scale(0.2);
+    opacity:0.4;
+  }
+
+  50%{
+    opacity:1;
+  }
+
+  100%{
+    top:100%;
+    left:50%;
+
+    transform : translate(-90%) scale(1.5);
+
+    opacity:0;
+  }
+
+  
+}
+
+
+
+#input{
+  position:absolute;
+  opacity:0;
+  pointer-events: none;
+  left:-999px;
+}
+
+
+
+
+#game-over-screen{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  z-index:100;
+  color:white;
+  text-align: center;
+}
+
+
+#lettergame-start{
+  position:fixed;
+  top:0%;
+  left:0%;
+  width:100%;
+  height:100%;
+  background:rgba(0, 0, 0, 0.8);
+  display:flex;
+  z-index:100;
+  justify-content: center;
+  align-items: center;
+  color:white;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***********how to play page **********/
+.howToPlayBackground{
+    width: 100%;
+    height: 90vh;
+
+    overflow-y: scroll;
+
+    background-image: url(../images/howToPlaybackground.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/*letter fall game****************/
+
+.letterFallbackground{
+  width:100%;
+  height:90vh;
+
+  background-image:url(../images/letterFallbackground.png);
+  background-repeat:no-repeat;
+  background-size:cover;
+
 }

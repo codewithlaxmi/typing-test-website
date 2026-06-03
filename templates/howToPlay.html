@@ -1,6 +1,46 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
 
-{% block content %}
+<div class="howToPlayBackground custom-scroll1">
+  <div>
+    <h1
+      class="text-center bg-gradient-to-br from-sky-800 to-black font-semibold shadow-sm text-xl m-[20px_400px] p-2 text-white rounded-xl"
+    >
+      How to Play
+    </h1>
+  </div>
+
+  {% for overview in overviews %}
+  <div
+    class="{{overview.background}}  me-20 ms-20 mt-20 rounded-xl p-3 shadow-white shadow-sm "
+  >
+    <!--title-->
+    <h2 class="ps-2 text-2xl font-semibold {{overview.color}}">
+      {{overview.title}}
+    </h2>
+    <!--content-->
+    <p class="justify-text text-start p-2">{{overview.content}}</p>
+    <!--link-->
+    <a
+      href="{{overview.link}}"
+      class="bg-blue-600 ms-2 text-white px-4 py-2 rounded-lg inline-block mt-2 hover:bg-transparent hover:scale-105 transition duration-200"
+    >
+      Play {{overview.button}} game
+    </a>
+  </div>
+
+  {% endfor%}
+
+
+  <!--last message-->
+  <div class="flex flex-cols-2 ms-[120px] me-[120px] p-3 text-center rounded-lg mb-20 mt-20 bg-gradient-to-br from-black to-blue-800 ">
+
+    <!--icon col-->
+    <i class="fa-solid fa-heart  text-red-600 text-2xl me-2"></i>
+
+    <!--text-->
+    <p class=" font-semibold text-lg">Thank you for visiting! I hope this page helps you understand the game easily…</p>
+
+  </div>
 
 
 
@@ -8,5 +48,6 @@
 
 
 
+</div>
 
 {% endblock %}

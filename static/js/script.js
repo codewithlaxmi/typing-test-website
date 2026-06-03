@@ -4,12 +4,6 @@ const startBtn = document.getElementById("startBtn");
 
 const text = document.getElementById("text");
 
-const dropdownBtn = document.getElementById("dropdownBtn");
-
-const dropdownMenu = document.getElementById("dropdownMenu");
-
-const options = document.querySelectorAll(".option");
-
 const timeText = document.getElementById("timeText");
 
 const wpmText = document.getElementById("wpmText");
@@ -23,6 +17,17 @@ const refreshBtn = document.getElementById("refreshBtn");
 const reviewBtn = document.getElementById("reviewBtn");
 
 const howToPlay = document.getElementById("howToPlay");
+
+const saveBtn = document.getElementById("saveBtn");
+
+const inputBtn = document.getElementById("inputBtn");
+
+const popup = document.getElementById("popup");
+
+const openTimer = document.getElementById("openTimer");
+
+const showTimer = document.getElementById("showTimer");
+
 
 // VARIABLES=============
 
@@ -66,29 +71,46 @@ const span = text.querySelectorAll("span");
 
 span[index].classList.add("border-b-2", "border-yellow-400");
 
-// DROPDOWN LOGIC=================
 
-options.forEach(function (option) {
-  option.addEventListener("click", function () {
-    // button text change
-    dropdownBtn.innerText = option.innerText;
+// OPEN POPUP LOGIC ================
+openTimer.addEventListener("click", function () {
 
-    // timer text change
-    timeText.innerText = option.innerText.match(/\d+/)[0] + "s";
+  popup.classList.remove("hidden");
 
-    // update time variable
-    time = parseInt(option.innerText.match(/\d+/)[0]);
-
-    // hide dropdown
-    dropdownMenu.classList.add("hidden");
-  });
 });
 
-// open close dropdown
 
-dropdownBtn.addEventListener("click", function () {
-  dropdownMenu.classList.toggle("hidden");
+// SAVE TIMER
+saveBtn.addEventListener("click", function () {
+
+  let customTime = parseInt(inputBtn.value);
+
+  // invalid value check
+  if (customTime <= 0 || isNaN(customTime)) {
+    alert("Enter valid seconds");
+    return;
+  }
+
+  // update timer
+  time = customTime;
+
+  // show on screen
+  timeText.innerText = time + "s";
+
+  // close popup
+  popup.classList.add("hidden");
+
 });
+
+
+//SHOW TIMER LOGIC=========
+
+showTimer.addEventListener("click",function(){
+  showTimer.innerText=timeText.innerText;
+ 
+
+})
+
 
 // START BUTTON LOGIC==========
 
@@ -251,25 +273,6 @@ typedChars++;
 
     accuracyText.innerText= accuracy + "%";
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });
 

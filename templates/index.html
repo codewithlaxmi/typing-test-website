@@ -23,42 +23,38 @@
       <i class="fa-solid fa-moon text-yellow-300"></i>
     </button>
 
-  <!--dropdown-->
-  <div class="relative w-40">
+      <!-- button -->
+      <button
+        id="openTimer"
+        class=" bg-slate-800 border border-blue-400 text-white  rounded-lg  p-2  text-center hover:bg-gradient-to-br from-purple-800 to-blue-600 hover:scale-110 transtion duration-300"
+      >
+         Timer
+      </button>
 
-  <!-- button -->
-  <button
-    id="dropdownBtn"
-    class="w-full bg-slate-800  text-white  py-2 rounded-lg p-2 text-left"
-  >
-    Medium <span>(40s)</span>
-  </button>
+      <!-- popup -->
+      <div
+        id="popup"
+        class="hidden fixed inset-0 flex items-center justify-center bg-black/40">
+          <div class="bg-gradient-to-br from-purple-950 to-black shadow-xl p-6 rounded-2xl w-70  text-center space-y-4 ">
+            <h1 class="text-white text-xl font-bold"> Set Timer </h1>
+            <input
+              id="inputBtn"            
+              type="number"
+              placeholder="Please enter you timer"
+              class="border border-blue-950 w-full px-4 py-2 text-black rounded-lg outline-none" 
+            >
 
-  <!-- dropdown menu -->
-  <div
-    id="dropdownMenu"
-    class="hidden absolute w-full mt-2 bg-slate-900 rounded-xl overflow-hidden"
-  >
+            <button class=" hover: bg-gradient-to-br from-purple-800 to-blue-600 rounded-lg border border-blue-400 px-2 py-2 hover:scale-105 transition duration-200 " id="saveBtn"> Save time </button>
+          </div>
 
-    <div class="p-2 hover:bg-slate-700 rounded-lg m-3 cursor-pointer option">
-      Easy <span>(5s)</span>
-    </div>
+      </div>
 
-    <div class="p-2 hover:bg-slate-700 rounded-lg m-3 cursor-pointer option">
-      Medium <span>(15s)</span>
-    </div>
-
-    <div class="p-2 rounded-lg hover:bg-slate-700 m-3 cursor-pointer option">
-      Hard <span>(20s)</span>
-    </div>
-
-  </div>
-
-</div>
+      <button class="bg-slate-800 border border-blue-400  px-2 py-2 rounded-lg hover:bg-gradient-to-br from-purple-800 to-blue-600 hover:scale-110 transition duration-200" id="showTimer"> show timer</button>
+  
 
     <!-- Start -->
     <button
-      class="bg-purple-600 px-5 py-2 rounded-lg hover:scale-110 transition duration-300 hover:bg-transparent border border-indigo-600"
+      class="bg-gradient-to-br from-purple-800 to-blue-600 px-5 py-2 rounded-lg hover:scale-110 transition duration-300 hover:bg-none border border-indigo-600"
       id="startBtn"
     >
       Start Test
@@ -122,7 +118,7 @@
       </div>
       <!--right: text-->
       <div class="flex flex-col">
-        <p  class="text-lg font-semibold text-purple-600">Time</p>
+        <p class="text-lg font-semibold text-purple-600">Time</p>
         <h2 id="timeText" class="font-bold text-2xl">40s</h2>
         <p class="text-gray-200 text-xs">Test duration</p>
       </div>
@@ -174,7 +170,7 @@
   >
     <!--button-->
     <button
-      class="bg-indigo-600 px-4 py-2 rounded-lg hover:bg-transparent border border-indigo-600 transition"
+      class="bg-gradient-to-br from-purple-800 to-blue-600 px-4 py-2 rounded-lg hover:bg-none border border-indigo-600 transition"
     >
       <i class="fa-solid fa-power-off"></i> Restart Test
     </button>
@@ -188,7 +184,7 @@
     <!--button-->
     <button
       id="refreshBtn"
-      class="bg-indigo-600 px-4 py-2 rounded-lg hover:bg-transparent border border-indigo-600 transition border-2"
+      class="bg-gradient-to-br from-purple-800 to-blue-600 px-4 py-2 rounded-lg hover:bg-none border border-indigo-600 transition "
     >
       <i class="fa-solid fa-arrows-rotate"></i> Refresh
     </button>
@@ -201,7 +197,7 @@
   >
     <button
       id="reviewBtn"
-      class="bg-indigo-600 px-4 py-2 rounded-lg hover:bg-transparent border border-indigo-600 transition"
+      class="bg-gradient-to-br from-purple-800 to-blue-600 px-4 py-2 rounded-lg hover:bg-none border border-indigo-600 transition"
     >
       <i class="fa-solid fa-star"></i> Review
     </button>
@@ -213,7 +209,7 @@
     class="p-3 bg-gradient-to-br gap-2 flex flex-col items-center justify-center from-blue-900/90 to-slate-500/30 border border-slate-500 rounded-lg shadow-[0_0_6px_rgba(59,130,246,0.3)] hover:scale-110 transition duration-300"
   >
     <button
-      class="px-4 py-2 bg-indigo-600 rounded-lg hover:bg-transparent border border-indigo-600 transition"
+      class="px-4 py-2 bg-gradient-to-br from-purple-800 to-blue-600 rounded-lg hover:bg-none border border-indigo-600 transition"
     >
       <i class="fa-solid fa-globe"></i> Hindi language
     </button>

@@ -1,0 +1,81 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+<div class="background ">
+  <div class="grid grid-cols-5 gap-[150px] mt-5  ">
+
+    {% for card in cards %}
+    <!--score card-->
+    <div class="hub-card bg-transprent rounded-lg m-7 flex ">
+      <!--icon card-->
+      <div class="text-purple-400 text-3xl pe-4 mt-1 ">
+        <i class=" {{card.icon}} {{card.iconbg}}  "></i>
+      </div>
+
+
+      <!--text-->
+      <div>
+        <h2 >{{card.title}}</h2>
+        <!---line-->
+         <div class="w-full h-[1px] bg-purple-500"></div>
+
+         <!--for show score-->
+         {% if card.title == "Score" %}
+        <p class="text-center" id="score">{{card.number}}</p>
+
+        <!--for show missed-->
+        {% elif card.title == "Missed" %}
+
+        <p class="text-center" id="missed">{{card.number}}</p>
+
+        <!--for timer-->
+        {% else %}
+
+        <p class="text-center"  id="timer">{{card.number}}</p>
+
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  
+
+
+  <!--each word div-->
+  <div id="game-area">
+
+   <div class="word"  >Dream</div>
+ 
+  </div>
+   <input type="text"  id="input"   autocomplete="off">
+
+
+  <div id="game-over-screen" style="display:none;">
+    <div class="overlay-content bg-gradient-to-br from-sky-500 to-purple-800 p-12 rounded-lg shadow-sm shadow-white">
+      <h1 class="text-4xl font-semibold  ">GAME OVER!</h1>
+      <P>Your final score: <span id="final-score">0</span></p>
+      <button id="restart-btn" class="bg-gradient-to-br from-black to-blue-800 text-xl mt-3 p-[12px_8px] rounded-lg hover:scale-110 transition duration-200"> Play again</button>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+
+{% endblock %}

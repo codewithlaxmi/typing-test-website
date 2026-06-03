@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<div class="flex flex-col items-center justify-center pt-10">
+
+  <!-- Task Header -->
+  <div class="text-center mb-8">
+    <h1 class="text-4xl font-bold text-white mb-2">
+      {{ task.title }}
+    </h1>
+
+    <span class="{{ task.levelColor }} px-4 py-1 rounded-full text-sm">
+      {{ task.level }}
+    </span>
+  </div>
+
+  <!-- Typing Box Area -->
+  <div
+    class="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 w-full max-w-3xl shadow-2xl"
+  >
+
+    <!-- Target Text -->
+    <div
+      id="target-text"
+      class="text-2xl font-mono text-slate-400 mb-6 leading-relaxed select-none  overflow-y-scroll h-[120px] custom-scroll  break-words"
+    >
+      {{ task.content }}
+    </div>
+
+    <!-- Typing Input -->
+    <textarea
+      id="typing-box"
+      class="w-full bg-slate-900 border-2 border-slate-700 p-4 rounded-xl text-white text-xl focus:outline-none focus:border-purple-500 transition-all h-[120px] overflow-y-scroll custom-scroll resize-none"
+      placeholder="Type the words above..."
+      autofocus
+    ></textarea>
+
+    <!-- Footer -->
+    <div class="flex justify-between mt-4 text-sm text-gray-400">
+      <span>
+        Character Count:
+        <span id="char-count">0</span>
+      </span>
+
+      <a href="/practice" class="hover:text-purple-400">
+        back to practice page
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const typingBox = document.getElementById("typing-box");
+  const targetText = document.getElementById("target-text");
+  const target = `{{ task.content }}`;
+  const charCount = document.getElementById("char-count");
+
+  typingBox.addEventListener("input", () => {
+
+    // Character count
+    charCount.innerText = typingBox.value.length;
+
+    // Auto scroll textarea
+    typingBox.scrollTop = typingBox.scrollHeight;
+
+    // Success check
+    if (typingBox.value.trim() === target.trim()) {
+      alert(" Congratulations! Task Completed.");
+    }
+  });
+</script>
+
+{% endblock %}

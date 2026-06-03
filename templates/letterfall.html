@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="letterFallbackground">
+  <!--4 top cards-->
+  <div class="grid grid-cols-4 gap-20 p-4">
+    {% for letterFallCard in letterFallCards %}
+
+    <div class="{{letterFallCard.background}} p-1 text-center  rounded-lg">
+      <!--title-->
+      <h2 class="text-2xl font-semibold">{{letterFallCard.title}}</h2>
+
+      <!--content-->
+      <i
+        class="{{letterFallCard.icon}} {{letterFallCard.iconColor}} text-3xl "
+      ></i>
+
+      <div class="flex text-center">
+        <!--icon-->
+        <i
+          class="{{letterFallCard.boxicon}} {{letterFallCard.boxiconColor}} ms-6 mt-1"
+        ></i>
+        <!--content-->
+        <p class="ms-2">{{letterFallCard.content}}</p>
+      </div>
+    </div>
+
+    {% endfor%}
+  </div>
+
+  <!--box for letters-->
+
+  <div class="m-[80px_220px] p-2 rounded-lg border border-white border-2">
+    <div
+      class="pb-[300px] bg-gradient-to-br from-black border border-white opacity-30 rounded-lg shadow-xl shadow-black"
+    ></div>
+  </div>
+
+  <div id="lettergame-start">
+    <div
+      class="letteroverlay-content bg-gradient-to-br from-sky-500 to-purple-800 p-7 rounded-lg shadow-sm shadow-white"
+    >
+      <h1 class="text-4xl font-bold text-blue-950 ">START GAME</h1>
+      <div class="w-80 mt-2 h-[1px] bg-purple-700"></div>
+      <p  class="text-sm mt-2 ">
+        Words will appear on the screen, type them correctly to increase your<br>
+        score. Enjoy the game and improve your typing speed while having fun!
+      </p>
+
+      <button id="start-btn" class="bg-gradient-to-br from-blue-800 to-black text-white p-2 text-lg font-semibold  rounded-lg mt-3 shadow-xl hover:scale-110 transition duration-200">Start Game</button>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
